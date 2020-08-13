@@ -12,6 +12,8 @@
 		"object-curly-spacing": ["error", "always"],
 		"indent": ["error", "tab"],
 		"arrow-parens": ["error", "as-needed"],
-		"require-jsdoc": "off"
+		"require-jsdoc": "off",
+		"one-var": "off",
+		"operator-linebreak": "off"
 	}
 }
