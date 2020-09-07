@@ -10,10 +10,16 @@
 		"semi": ["error", "never"],
 		"no-tabs": ["error", { "allowIndentationTabs": true }],
 		"object-curly-spacing": ["error", "always"],
-		"indent": ["error", "tab"],
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
 		"arrow-parens": ["error", "as-needed"],
 		"require-jsdoc": "off",
 		"one-var": "off",
-		"operator-linebreak": "off"
+		"operator-linebreak": "off",
+		"space-before-function-paren": [
+			"error",
+			{ "anonymous": "always", "named": "never", "asyncArrow": "always" }
+		],
+		"no-extra-semi": "off",
+		"no-fallthrough": ["error"]
 	}
 }
