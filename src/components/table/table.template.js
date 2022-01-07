@@ -3,10 +3,17 @@ const CODES = {
 	Z: 90,
 }
 
-function toCell(_, index) {
-	return `
-		<div class="cell" contenteditable data-col='${index}'></div>
-	`
+function toCell(row) {
+	// eslint-disable-next-line space-before-function-paren
+	return function (_, col) {
+		return `
+			<div class="cell" contenteditable 
+				data-type="cell"
+				data-col="${col}"
+				data-id="${col}:${row}">
+			</div>
+		`
+	}
 }
 
 function createRow(index, content = '') {
@@ -45,9 +52,9 @@ export function createTable(rowsCount = 15) {
 	rows.push(createRow(null, cols))
 
 	// creating table body
-	const cells = Array.from(new Array(colsCount), toCell).join('')
-	for (let i = 1; i < rowsCount + 1; i++) {
-		rows.push(createRow(i, cells))
+	for (let i = 0; i < rowsCount; i++) {
+		const cells = Array.from(new Array(colsCount), toCell(i)).join('')
+		rows.push(createRow(i + 1, cells))
 	}
 
 	return rows.join('')
